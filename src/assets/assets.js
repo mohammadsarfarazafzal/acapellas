@@ -1,8 +1,8 @@
 export const audios = [{
     name: "Kahani Suno",
-    filePath: "src/assets/kahani.mp3",
+    filePath: "./src/assets/kahani.mp3",
     fileType: "song",
-    image: "src/assets/kahani.jpg",
+    image: "./src/assets/kahani.jpg",
     link: "https://youtu.be/_XBVWlI8TsQ?si=Gc3mnMIrdX4bFJRd",
     duration: "02:18",
     id: 0,
