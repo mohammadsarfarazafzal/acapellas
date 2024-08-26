@@ -22,7 +22,7 @@ const Player = () => {
     <div className="lg:h-[15%] h-[17%] w-full flex justify-center lg:gap-5 items-center">
       <div className="w-[33%] h-full hidden lg:flex pl-7 gap-2 items-center">
         <div className="h-full flex items-center justify-center">
-          <img className="h-14 w-14 rounded" src={import.meta.env.BASE_URL + track.image} alt="cover" />
+          <img className="h-14 w-14 rounded" src={track.image} alt="cover" />
         </div>
         <div className="flex-col text-white justify-center items-center">
           <div className="text-lg font-sans font-semibold">{track.name}</div>
@@ -50,7 +50,7 @@ const Player = () => {
             <div className="h-full flex items-center justify-center">
               <img
                 className="h-14 w-14 rounded"
-                src={import.meta.env.BASE_URL + track.image}
+                src={track.image}
                 alt="cover"
               />
             </div>
