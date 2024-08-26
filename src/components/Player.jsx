@@ -19,7 +19,7 @@ const Player = () => {
   } = useContext(PlayerContext);
 
   return (
-    <div className="h-[15%] flex justify-center lg:gap-5 items-center">
+    <div className="lg:h-[15%] h-[17%] w-full flex justify-center lg:gap-5 items-center">
       <div className="w-[33%] h-full hidden lg:flex pl-7 gap-2 items-center">
         <div className="h-full flex items-center justify-center">
           <img className="h-14 w-14 rounded" src={track.image} alt="cover" />
@@ -44,7 +44,7 @@ const Player = () => {
           </div>
         </div>
       </div>
-      <div className="h-full w-auto flex lg:flex-col flex-col-reverse">
+      <div className="h-full lg:w-auto w-full flex lg:flex-col flex-col-reverse p-3">
         <div className="lg:h-[60%] h-[80%] flex lg:justify-center item-center lg:gap-9 gap-1">
           <div className="h-full flex flex-1 lg:hidden gap-2 items-center">
             <div className="h-full flex items-center justify-center">

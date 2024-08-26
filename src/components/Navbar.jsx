@@ -3,8 +3,16 @@ import React from "react";
 const Navbar = () => {
     return (
         <>
-            <div className="w-full flex justify-between items-center p-3">
-                <div className="flex justify-center items-center gap-3">
+            <div className="w-full h-[13%] flex items-center p-3 border-b border-b-zinc-800">
+                <div className="h-full lg:hidden flex gap-2 justify-center items-center">
+                    <div className="h-full flex justify-center items-center cursor-pointer">
+                        <img className="h-9 w-9" src="src/assets/logo.png" alt="logo" />
+                    </div>
+                    <div className="h-full text-white text-4xl font-sans font-extrabold flex justify-center items-center cursor-pointer">
+                        Acapellas
+                    </div>
+                </div>
+                <div className="lg:flex hidden justify-center items-center gap-3">
                     <svg
                         className="cursor-pointer"
                         xmlns="http://www.w3.org/2000/svg"
@@ -28,7 +36,12 @@ const Navbar = () => {
                 </div>
                 <div className="flex-1 flex justify-center items-center">
                     <label htmlFor="search"></label>
-                    <input className="text-center text-white text-base font-sans w-6/12 h-9 bg-[#282828] rounded-full flex justify-center items-center" type="search" id="search" placeholder="Search" />
+                    <input
+                        className="text-center text-white text-base font-sans lg:w-[50%] w-[75%] h-9 bg-[#282828] rounded-full flex justify-center items-center"
+                        type="search"
+                        id="search"
+                        placeholder="Search"
+                    />
                 </div>
                 <div className="flex justify-center items-center gap-3">
                     <svg
