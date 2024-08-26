@@ -8,7 +8,7 @@ const Display = () => {
     <div className='lg:w-[75%] w-full h-full'>
       <Navbar />
       <Routes>
-        <Route path='acapellas/' element = {<DisplayHome />} />
+        <Route path='/' element = {<DisplayHome />} />
       </Routes>
     </div>
   )
