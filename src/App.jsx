@@ -9,7 +9,7 @@ const App = () => {
   const {audioRef, track, next, play } = useContext(PlayerContext);
   return (
     <>
-    <div className='h-screen w-screen bg-[#121212]'>
+    <div className='h-screen w-screen bg-[#E0E0E0] dark:bg-[#121212]'>
       <div className='lg:h-[85%] h-[83%] w-full flex'>
         <Sidebar />
         <Display />
