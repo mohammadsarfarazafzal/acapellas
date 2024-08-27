@@ -196,6 +196,12 @@ const PlayerContextProvider = (props) => {
     useEffect(() => {
         document.querySelector('html').classList.remove('dark', 'light');
         document.querySelector('html').classList.add(themeMode);
+        if (darkStatus) {
+            svgLoop.current.style.fill = "#e8eaed";
+        }
+        else {
+            svgLoop.current.style.fill = "#121212";
+        }
     }, [themeMode]);
 
     return (
