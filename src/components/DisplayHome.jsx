@@ -1,5 +1,6 @@
 import React from 'react'
-import { audios } from '../assets/assets'
+// import { audios } from '../assets/assets'
+import { audios } from '../../public/assets/assets'
 import Acapella from './Acapella'
 import { useContext } from 'react'
 import { PlayerContext } from '../context/PlayerContext'

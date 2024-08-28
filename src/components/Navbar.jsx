@@ -2,13 +2,13 @@ import React, { useContext } from "react";
 import { PlayerContext } from "../context/PlayerContext";
 
 const Navbar = () => {
-    const {setTheme, darkStatus, setDark, search, setSearch} = useContext(PlayerContext);
+    const {setTheme, darkStatus, setDark, setSearch} = useContext(PlayerContext);
     return (
         <>
             <div className="w-full h-[13%] flex items-center p-3 border-b border-b-zinc-800">
                 <div className="h-full lg:hidden flex gap-2 justify-center items-center">
                     <div className="h-full flex justify-center items-center cursor-pointer">
-                        <img className="h-9 w-9" src="src/assets/logo.png" alt="logo" />
+                        <img className="h-9 w-9" src="public/assets/logo.png" alt="logo" />
                     </div>
                     <div className="h-full dark:text-white text-[#121212] text-4xl font-sans font-extrabold flex justify-center items-center cursor-pointer">
                         Acapellas
