@@ -1,16 +1,17 @@
 import React, { useContext } from "react";
 import { PlayerContext } from "../context/PlayerContext";
+import { logo } from "../../public/assets/assets";
 
 const Navbar = () => {
     const {setTheme, darkStatus, setDark, setSearch} = useContext(PlayerContext);
     return (
         <>
-            <div className="w-full h-[13%] flex items-center p-3 border-b border-b-zinc-800">
+            <div className="w-full h-[12%] flex items-center p-3 border-b border-b-zinc-800">
                 <div className="h-full lg:hidden flex gap-2 justify-center items-center">
                     <div className="h-full flex justify-center items-center cursor-pointer">
-                        <img className="h-9 w-9" src="public/assets/logo.png" alt="logo" />
+                        <img className="h-9 w-9" src={logo} alt="logo" />
                     </div>
-                    <div className="h-full dark:text-white text-[#121212] text-4xl font-sans font-extrabold flex justify-center items-center cursor-pointer">
+                    <div className="h-full dark:text-white text-[#121212] text-3xl font-sans font-extrabold flex justify-center items-center cursor-pointer">
                         Acapellas
                     </div>
                 </div>

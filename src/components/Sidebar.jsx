@@ -1,10 +1,11 @@
 import React from "react";
+import { logo } from "../../public/assets/assets";
 
 const Sidebar = () => {
     return <div className="dark:bg-[#282828] bg-[#708090] w-[25%] h-full flex-col p-2 gap-2 text-white hidden lg:flex">
         <div className="h-[15%] flex gap-2 justify-center items-center mb-3">
             <div className="h-full flex justify-center items-center cursor-pointer">
-                <img className="h-9 w-9" src="../../public/assets/logo.png" alt="logo" />
+                <img className="h-9 w-9" src={logo} alt="logo" />
             </div>
             <div className="h-full text-4xl font-sans font-extrabold flex justify-center items-center cursor-pointer">
                 Acapellas

@@ -1,8 +1,7 @@
 import { useState } from "react";
 import { useRef } from "react";
 import { createContext } from "react";
-// import { audios } from '../assets/assets'
-import { audios } from '../../public/assets/assets'
+import { audios } from '../../public/assets/assets';
 import { useEffect } from "react";
 
 export const PlayerContext = createContext();
