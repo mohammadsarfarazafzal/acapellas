@@ -17,7 +17,7 @@ const PlayerContextProvider = (props) => {
     const highVol = useRef();
     const midVol = useRef();
     const lowVol = useRef();
-    const [track, setTrack] = useState(audios[0]);
+    const [track, setTrack] = useState(audios[Math.floor(Math.random() * (audios.length - 0) ) + 0]);
     const [playStatus, setPlayStatus] = useState(false);
     const [themeMode, setTheme] = useState('dark');
     const [darkStatus, setDark] = useState(true);
