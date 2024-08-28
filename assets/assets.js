@@ -206,3 +206,5 @@ export const audios = [{
     id: 22,
 },
 ];
+
+export const logo = "./assets/logo.png";
