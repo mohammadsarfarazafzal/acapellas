@@ -180,7 +180,7 @@ const PlayerContextProvider = (props) => {
             audioRef.current.ontimeupdate = () => {
                 seekBg.current.style.width =
                     parseFloat(
-                        ((audioRef.current.currentTime / audioRef.current.duration) * 100.0 + 0.1)
+                        ((audioRef.current.currentTime / audioRef.current.duration) * 100.0)
                     ).toString() + "%";
                 seekBar.current.value = parseFloat(
                     (audioRef.current.currentTime / audioRef.current.duration) * 100.0

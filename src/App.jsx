@@ -6,7 +6,7 @@ import { useContext } from 'react'
 import { PlayerContext } from './context/PlayerContext'
 
 const App = () => {
-  const {audioRef, track, next, play } = useContext(PlayerContext);
+  const {audioRef, track, next, play, playStatus } = useContext(PlayerContext);
   return (
     <>
     <div className='h-screen w-screen bg-[#E0E0E0] dark:bg-[#121212]'>
@@ -15,9 +15,10 @@ const App = () => {
         <Display />
       </div>
       <Player />
-      <audio ref={audioRef} src={track.filePath} preload='auto' onEnded={async ()=>{
-        await next();
-        play();
+      <audio ref={audioRef} src={track.filePath} preload='auto' onEnded={async()=>{await next()}} onCanPlay={()=>{
+        if(playStatus){
+          play();
+        }
       }}></audio>
     </div>
     </>
