@@ -4,17 +4,17 @@
 
 ::-webkit-slider-thumb {
     -webkit-appearance: none;
-    width: 11px;
-    height: 11px;
+    width: 13px;
+    height: 13px;
     border-radius: 50%;
     cursor: pointer;
     outline: none;
     background-color: #fff;
+    visibility: hidden;
 }
 
-::-webkit-slider-thumb:hover {
-    width: 13px;
-    height: 13px;
+input[type="range"]:hover::-webkit-slider-thumb {
+    visibility: visible;
 }
 
 input[type="search"]::-webkit-input-placeholder {

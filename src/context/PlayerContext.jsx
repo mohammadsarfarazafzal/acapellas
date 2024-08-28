@@ -17,12 +17,14 @@ const PlayerContextProvider = (props) => {
     const highVol = useRef();
     const midVol = useRef();
     const lowVol = useRef();
+    const sideBarMob = useRef();
     const [track, setTrack] = useState(audios[Math.floor(Math.random() * (audios.length - 0) ) + 0]);
     const [playStatus, setPlayStatus] = useState(false);
     const [themeMode, setTheme] = useState('dark');
     const [darkStatus, setDark] = useState(true);
     const [tempVol, setTempVol] = useState(1);
     const [search, setSearch] = useState('');
+    const [sideStatus, setSideStatus] = useState(false)
     const [time, setTime] = useState({
         currentTime: {
             second1: 0,
@@ -168,7 +170,9 @@ const PlayerContextProvider = (props) => {
         themeMode, setTheme,
         darkStatus, setDark,
         volRef, changeVol, volBg, highVol, midVol, lowVol, mute, unmute,
-        search, setSearch
+        search, setSearch,
+        sideStatus, setSideStatus,
+        sideBarMob
     };
 
     useEffect(() => {
@@ -207,6 +211,17 @@ const PlayerContextProvider = (props) => {
             svgLoop.current.style.fill = "#646464";
         }
     }, [themeMode]);
+
+    useEffect(()=>{
+        if(sideStatus){
+            sideBarMob.current.classList.remove('hidden','lg:flex','w-[25%]','h-full');
+            sideBarMob.current.classList.add('flex','absolute','z-[20]','w-[75%]','h-screen' );
+        }
+        else{
+            sideBarMob.current.classList.remove('flex','absolute','z-[20]','w-[50%]','h-screen');
+            sideBarMob.current.classList.add('hidden','lg:flex','w-[25%]','h-full');
+        }
+    },[sideStatus])
 
     return (
         <PlayerContext.Provider value={contextValue}>
