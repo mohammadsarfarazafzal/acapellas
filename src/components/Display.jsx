@@ -5,7 +5,7 @@ import Navbar from './Navbar'
 
 const Display = () => {
   return (
-    <div className='lg:w-[75%] w-full h-full'>
+    <div>
       <Navbar />
       <Routes>
         <Route path='/' element = {<DisplayHome />} />

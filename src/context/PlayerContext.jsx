@@ -1,8 +1,5 @@
-import { useState } from "react";
-import { useRef } from "react";
-import { createContext } from "react";
-import { audios } from '../../public/assets/assets';
-import { useEffect } from "react";
+import { useEffect, useState, useRef, createContext } from "react";
+import { audios } from "../../public/assets/assets";
 
 export const PlayerContext = createContext();
 
@@ -18,13 +15,16 @@ const PlayerContextProvider = (props) => {
     const midVol = useRef();
     const lowVol = useRef();
     const sideBarMob = useRef();
-    const [track, setTrack] = useState(audios[Math.floor(Math.random() * (audios.length - 0) ) + 0]);
+    const [playlist, setPlayList] = useState(audios);
+    const [track, setTrack] = useState(
+        playlist[Math.floor(Math.random() * (playlist.length - 0)) + 0]
+    );
     const [playStatus, setPlayStatus] = useState(false);
-    const [themeMode, setTheme] = useState('dark');
+    const [themeMode, setTheme] = useState("dark");
     const [darkStatus, setDark] = useState(true);
     const [tempVol, setTempVol] = useState(1);
-    const [search, setSearch] = useState('');
-    const [sideStatus, setSideStatus] = useState(false)
+    const [search, setSearch] = useState("");
+    const [sideStatus, setSideStatus] = useState(false);
     const [time, setTime] = useState({
         currentTime: {
             second1: 0,
@@ -41,31 +41,33 @@ const PlayerContextProvider = (props) => {
         audioRef.current.pause();
         setPlayStatus(false);
     };
-    const playWithId = async (id) => {
-        setTrack(audios[id]);
-        await audioRef.current.play();
+
+    const playWithId = (id, newPlaylist) => {
+        setPlayList(newPlaylist);
+        setTrack(newPlaylist[id]);
+        audioRef.current.play();
         setPlayStatus(true);
-    };
+    }
 
     const previous = async () => {
         if (track.id == 0) {
-            setTrack(audios[audios.length - 1]);
+            setTrack(playlist[playlist.length - 1]);
             await audioRef.current.play();
             setPlayStatus(true);
         } else {
-            setTrack(audios[track.id - 1]);
+            setTrack(playlist[track.id - 1]);
             await audioRef.current.play();
             setPlayStatus(true);
         }
     };
 
     const next = async () => {
-        if (track.id == audios.length - 1) {
-            setTrack(audios[0]);
+        if (track.id == playlist.length - 1) {
+            setTrack(playlist[0]);
             await audioRef.current.play();
             setPlayStatus(true);
         } else {
-            setTrack(audios[track.id + 1]);
+            setTrack(playlist[track.id + 1]);
             await audioRef.current.play();
             setPlayStatus(true);
         }
@@ -78,25 +80,22 @@ const PlayerContextProvider = (props) => {
 
     const changeVol = () => {
         audioRef.current.volume = volRef.current.value / 100;
-        volBg.current.style.width = parseFloat(
-            audioRef.current.volume * 100
-        ).toString() + "%";
+        volBg.current.style.width =
+            parseFloat(audioRef.current.volume * 100).toString() + "%";
         if (audioRef.current.volume == 0) {
             lowVol.current.style.display = "unset";
             midVol.current.style.display = "none";
             highVol.current.style.display = "none";
-        }
-        else if (audioRef.current.volume < 0.5) {
+        } else if (audioRef.current.volume < 0.5) {
             lowVol.current.style.display = "none";
             midVol.current.style.display = "unset";
             highVol.current.style.display = "none";
-        }
-        else {
+        } else {
             lowVol.current.style.display = "none";
             midVol.current.style.display = "none";
             highVol.current.style.display = "unset";
         }
-    }
+    };
 
     const mute = () => {
         audioRef.current.volume = volRef.current.value / 100;
@@ -104,42 +103,38 @@ const PlayerContextProvider = (props) => {
             setTempVol(audioRef.current.volume);
             audioRef.current.volume = 0;
             volRef.current.value = 0;
-            volBg.current.style.width = parseFloat(
-                audioRef.current.volume * 100
-            ).toString() + "%";
+            volBg.current.style.width =
+                parseFloat(audioRef.current.volume * 100).toString() + "%";
             highVol.current.style.display = "none";
             midVol.current.style.display = "none";
             lowVol.current.style.display = "unset";
         }
-    }
+    };
     const unmute = () => {
         audioRef.current.volume = volRef.current.value / 100;
         if (audioRef.current.volume == 0) {
             audioRef.current.volume = tempVol;
             volRef.current.value = tempVol * 100;
-            volBg.current.style.width = parseFloat(
-                audioRef.current.volume * 100
-            ).toString() + "%";
+            volBg.current.style.width =
+                parseFloat(audioRef.current.volume * 100).toString() + "%";
             if (tempVol > 0.5) {
                 highVol.current.style.display = "unset";
                 midVol.current.style.display = "none";
                 lowVol.current.style.display = "none";
-            }
-            else {
+            } else {
                 highVol.current.style.display = "none";
                 midVol.current.style.display = "unset";
                 lowVol.current.style.display = "none";
             }
         }
-    }
+    };
 
     const loopAudio = () => {
         if (loopBox.current.checked) {
             audioRef.current.loop = true;
             if (darkStatus) {
                 svgLoop.current.style.fill = "#e8eaed";
-            }
-            else {
+            } else {
                 svgLoop.current.style.fill = "#121212";
             }
         } else {
@@ -167,12 +162,25 @@ const PlayerContextProvider = (props) => {
         svgLoop,
         loopBox,
         loopAudio,
-        themeMode, setTheme,
-        darkStatus, setDark,
-        volRef, changeVol, volBg, highVol, midVol, lowVol, mute, unmute,
-        search, setSearch,
-        sideStatus, setSideStatus,
-        sideBarMob
+        themeMode,
+        setTheme,
+        darkStatus,
+        setDark,
+        volRef,
+        changeVol,
+        volBg,
+        highVol,
+        midVol,
+        lowVol,
+        mute,
+        unmute,
+        search,
+        setSearch,
+        sideStatus,
+        setSideStatus,
+        sideBarMob,
+        playlist,
+        setPlayList,
     };
 
     useEffect(() => {
@@ -180,7 +188,7 @@ const PlayerContextProvider = (props) => {
             audioRef.current.ontimeupdate = () => {
                 seekBg.current.style.width =
                     parseFloat(
-                        ((audioRef.current.currentTime / audioRef.current.duration) * 100.0)
+                        (audioRef.current.currentTime / audioRef.current.duration) * 100.0
                     ).toString() + "%";
                 seekBar.current.value = parseFloat(
                     (audioRef.current.currentTime / audioRef.current.duration) * 100.0
@@ -193,18 +201,17 @@ const PlayerContextProvider = (props) => {
                         minute2: Math.floor(audioRef.current.currentTime / 60 / 10),
                     },
                 });
-            }
+            };
         }, 1000);
     }, [audioRef]);
 
     useEffect(() => {
-        document.querySelector('html').classList.remove('dark', 'light');
-        document.querySelector('html').classList.add(themeMode);
+        document.querySelector("html").classList.remove("dark", "light");
+        document.querySelector("html").classList.add(themeMode);
         if (loopBox.current.checked) {
             if (darkStatus) {
                 svgLoop.current.style.fill = "#e8eaed";
-            }
-            else {
+            } else {
                 svgLoop.current.style.fill = "#121212";
             }
         } else {
@@ -212,16 +219,37 @@ const PlayerContextProvider = (props) => {
         }
     }, [themeMode]);
 
-    useEffect(()=>{
-        if(sideStatus){
-            sideBarMob.current.classList.remove('hidden','lg:flex','w-[25%]','h-full');
-            sideBarMob.current.classList.add('flex','absolute','z-[20]','w-[75%]','h-screen' );
+    useEffect(() => {
+        if (sideStatus) {
+            sideBarMob.current.classList.remove(
+                "hidden",
+                "lg:flex",
+                "w-[25%]",
+                "h-full"
+            );
+            sideBarMob.current.classList.add(
+                "flex",
+                "absolute",
+                "z-[20]",
+                "w-[75%]",
+                "h-screen"
+            );
+        } else {
+            sideBarMob.current.classList.remove(
+                "flex",
+                "absolute",
+                "z-[20]",
+                "w-[50%]",
+                "h-screen"
+            );
+            sideBarMob.current.classList.add(
+                "hidden",
+                "lg:flex",
+                "w-[25%]",
+                "h-full"
+            );
         }
-        else{
-            sideBarMob.current.classList.remove('flex','absolute','z-[20]','w-[50%]','h-screen');
-            sideBarMob.current.classList.add('hidden','lg:flex','w-[25%]','h-full');
-        }
-    },[sideStatus])
+    }, [sideStatus]);
 
     return (
         <PlayerContext.Provider value={contextValue}>
