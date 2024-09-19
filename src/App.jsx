@@ -12,10 +12,16 @@ const App = () => {
     <div className='h-screen w-screen bg-[#E0E0E0] dark:bg-[#121212]'>
       <div className='lg:h-[85%] h-[83%] w-full flex'>
         <Sidebar />
+        <div className='lg:w-[75%] w-full h-full overflow-auto'>
         <Display />
+        </div>
+        
       </div>
+      <div className='bg-[#E0E0E0] dark:bg-[#121212]'>
       <Player />
-      <audio ref={audioRef} src={track.filePath} preload='auto' onEnded={async()=>{await next()}} onCanPlay={()=>{
+      </div>
+      
+      <audio ref={audioRef} src={track.filePath} preload='auto' onEnded={()=>{next()}} onCanPlay={()=>{
         if(playStatus){
           play();
         }

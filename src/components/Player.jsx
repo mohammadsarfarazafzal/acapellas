@@ -58,7 +58,7 @@ const Player = () => {
       <div className="h-full lg:w-auto w-full flex lg:flex-col flex-col-reverse p-3 gap-2">
         <div className="lg:h-[60%] h-[80%] flex lg:justify-center item-center lg:gap-9 gap-1">
           <div className="h-full flex flex-1 lg:hidden gap-2 items-center">
-            <div className="h-full flex items-center justify-center">
+            <div className="h-14 w-14 flex items-center justify-center">
               <img
                 className="h-14 w-14 rounded"
                 src={track.image}
@@ -89,9 +89,10 @@ const Player = () => {
           </div>
           <span className="flex justify-center items-center">
             <svg
-              onClick={async () => {
-                await previous();
-                play();
+              onClick={() => {
+                // await previous();
+                // play();
+                previous();
               }}
               className="cursor-pointer dark:fill-[#e8eaed] fill-[#121212]"
               xmlns="http://www.w3.org/2000/svg"
@@ -128,9 +129,10 @@ const Player = () => {
           )}
           <span className="flex justify-center items-center">
             <svg
-              onClick={async () => {
-                await next();
-                play();
+              onClick={() => {
+                // await next();
+                // play();
+                next();
               }}
               className="cursor-pointer dark:fill-[#e8eaed] fill-[#121212]"
               xmlns="http://www.w3.org/2000/svg"
