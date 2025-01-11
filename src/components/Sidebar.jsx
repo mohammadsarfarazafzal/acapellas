@@ -1,7 +1,7 @@
 import React, { useContext, useRef } from "react";
 import { logo } from "../../public/assets/assets";
 import { PlayerContext } from "../context/PlayerContext";
-
+import { Link } from "react-router-dom";
 const Sidebar = () => {
     const { setDark, setTheme, darkStatus, sideBarMob } =
         useContext(PlayerContext);
@@ -17,7 +17,7 @@ const Sidebar = () => {
                 <div className="h-full text-4xl font-sans font-extrabold flex justify-center items-center cursor-pointer">
                     Acapellas
                 </div>
-            </div>
+            </div><Link to="/">
             <div className="h-16 flex gap-2 items-center pl-7 hover:bg-[#ffffff26] rounded cursor-pointer">
                 <div className="h-full flex justify-center items-center cursor-pointer">
                     <svg
@@ -29,9 +29,10 @@ const Sidebar = () => {
                     </svg>
                 </div>
                 <div className="h-full text-2xl font-sans font-bold flex justify-center items-center cursor-pointer">
-                    Home
+                Home
                 </div>
-            </div>
+            </div></Link>
+            <Link to="/about">
             <div className="h-16 flex gap-2 items-center pl-7 hover:bg-[#ffffff26] rounded cursor-pointer">
                 <div className="h-full flex justify-center items-center cursor-pointer">
                     <svg
@@ -45,7 +46,7 @@ const Sidebar = () => {
                 <div className="h-full text-2xl font-sans font-bold flex justify-center items-center cursor-pointer">
                     About Us
                 </div>
-            </div>
+            </div></Link>
             <div className="h-16 flex gap-2 items-center pl-7 hover:bg-[#ffffff26] rounded cursor-pointer">
                 <div className="h-full flex justify-center items-center cursor-pointer">
                     <svg

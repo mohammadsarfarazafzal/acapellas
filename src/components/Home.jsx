@@ -4,11 +4,11 @@ import Acapella from './Acapella';
 import { useContext } from 'react';
 import { PlayerContext } from '../context/PlayerContext';
 
-const DisplayHome = () => {
+const Home = () => {
     const { search } = useContext(PlayerContext)
     return (
         <>
-            <div className='h-full'>
+            <div className='h-screen'>
                 <div className='p-3'>
                     <h1 className='text-2xl font-bold mb-3 pl-1 text-[#121212] dark:text-white'>All Items</h1>
                     <div className='flex items-center gap-1'>
@@ -60,4 +60,4 @@ const DisplayHome = () => {
     )
 }
 
-export default DisplayHome
+export default Home

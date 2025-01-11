@@ -1,14 +1,16 @@
 import React from 'react'
 import { Route, Routes } from 'react-router-dom'
-import DisplayHome from './DisplayHome'
+import Home from './Home'
 import Navbar from './Navbar'
+import About from './About'
 
 const Display = () => {
   return (
     <div>
       <Navbar />
       <Routes>
-        <Route path='/' element = {<DisplayHome />} />
+        <Route path='/' element = {<Home />} />
+        <Route path='/about' element = {<About />} />
       </Routes>
     </div>
   )
