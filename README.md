@@ -58,8 +58,7 @@
 
 ## Screenshots 🌟
 
-![image](https://github.com/user-attachments/assets/e57707de-7221-4eac-b77e-5380b507c283)
-
+![Screenshot](https://github.com/user-attachments/assets/6e3a5902-83d1-4579-a2e9-8c086c1d44fd)
 
 ---
 
